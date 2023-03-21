@@ -1,0 +1,30 @@
+{
+  "cli": {
+    "version": ">= 0.47.0"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "releaseChannel": "default"
+    },
+    "preview": {
+      "distribution": "internal",
+      "releaseChannel": "default"
+    },
+    "production": {
+      "releaseChannel": "production"
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "appleId": "central-sysadmin@southbaychurch.org",
+        "appleTeamId": "CYZ6V3K643",
+        "ascApiKeyId": "8SVL8ZW488",
+        "ascApiKeyIssuerId": "67f046fc-ce81-428e-85e9-39973429028a",
+        "ascAppId": "1496564910"
+      }
+    }
+  }
+}
