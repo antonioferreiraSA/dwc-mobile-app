@@ -22,18 +22,7 @@ export default {
       fallbackToCacheTimeout: 0,
     },
     assetBundlePatterns: ['**/*'],
-    hooks: {
-      postPublish: [
-        {
-          file: 'sentry-expo/upload-sourcemaps',
-          config: {
-            organization: 'echo-labs-team',
-            project: 'echo-app',
-            authToken: process.env.SENTRY_AUTH_TOKEN,
-          },
-        },
-      ],
-    },
+    
     ios: {
       buildNumber: String(timestamp),
       bundleIdentifier: 'com.echo.church.app',
@@ -60,13 +49,7 @@ export default {
       ],
     ],
     extra: {
-      AMPLITUDE: process.env.AMPLITUDE,
-      TIMESTAMP: timestamp,
-      ONESIGNAL_APP_ID: process.env.ONESIGNAL_APP_ID,
-      SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
-      SENTRY_DSN: process.env.SENTRY_DSN,
-      TWITTER: process.env.TWITTER,
-      YOUTUBE_API_KEY: process.env.YOUTUBE_API_KEY,
+    
     },
   },
 };
