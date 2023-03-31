@@ -6,8 +6,10 @@ import logEvent from '../../utils/logEvent';
 import Colors from '../../constants/Colors';
 import { Text, Title } from '../../components/shared/Typography';
 import Button from '../../components/shared/Button';
+import { useNavigation } from '@react-navigation/native';
 
 const PrayerRequestsScreen = () => {
+  const navigation = useNavigation();
   return (
     <HeaderHeightContext.Consumer>
       {(headerHeight) => (
@@ -29,14 +31,8 @@ const PrayerRequestsScreen = () => {
               title="Submit Prayer Request"
               style={styles.button}
               onPress={() => {
-                logEvent('TAP Prayer Request Submit');
-                WebBrowser.openBrowserAsync(
-                  'https://echo.church/prayerrequest',
-                  { toolbarColor: Colors.darkestGray }
-                ).catch((err) => {
-                  logEvent('ERROR with WebBrowser', { error: err });
-                  WebBrowser.dismissBrowser();
-                });
+                logEvent('TAP Baptism Interested');
+                navigation.navigate('Prayer Request'); // navigate to BaptismForm screen
               }}
             />
           </View>

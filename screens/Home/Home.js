@@ -2,16 +2,17 @@ import React from 'react';
 import { RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
 import { useSafeArea } from 'react-native-safe-area-context';
 import { useScrollToTop } from '@react-navigation/native';
-import Colors from '../constants/Colors';
-import { useBlogPosts } from '../data/blogPosts';
-import { useHandleTabChange } from '../utils/useHandleTabChange';
-import { Text } from '../components/shared/Typography';
-import Button from '../components/shared/Button';
-import EchoLogo from '../components/EchoLogo';
-import HomeCardPlaceholder from '../components/HomeCardPlaceholder';
-import Card from '../components/HomeCard';
-import { openBrowser } from '../utils/openBrowser';
+import Colors from '../../constants/Colors';
+import { useBlogPosts } from '../../data/blogPosts';
+import { useHandleTabChange } from '../../utils/useHandleTabChange';
+import { Text } from '../../components/shared/Typography';
+import Button from '../../components/shared/Button';
+import EchoLogo from '../../components/EchoLogo';
+import HomeCardPlaceholder from '../../components/HomeCardPlaceholder';
+import Card from '../../components/HomeCard';
+import { openBrowser } from '../../utils/openBrowser';
 import { Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const sortPosts = (firstPost = {}, secondPost = {}) => {
   const { date: firstDate, type: firstType } = firstPost;
@@ -29,21 +30,22 @@ const sortPosts = (firstPost = {}, secondPost = {}) => {
   return new Date(secondDate) - new Date(firstDate);
 };
 
-const CheckInButton = () => (
-  <Button
-    icon={<Feather name="check-square" size={28} color={Colors.white} />}
-    title="Check In"
-    style={styles.checkIn}
-    onPress={() =>
-      openBrowser({
-        title: 'Check In',
-        url: 'http://echo.church/checkin',
-      })
-    }
-  />
-);
+// const CheckInButton = () => (
+//   <Button
+//     icon={<Feather name="check-square" size={28} color={Colors.white} />}
+//     title="Join The  Family"
+//     style={styles.checkIn}
+//     onPress={() =>
+//       openBrowser({
+//         title: 'Check In',
+//         url: 'http://echo.church/checkin',
+//       })
+//     }
+//   />
+// );
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
   useHandleTabChange('Home');
   const insets = useSafeArea();
   const ref = React.useRef(null);
@@ -78,7 +80,17 @@ const HomeScreen = () => {
             <HomeCardPlaceholder key={`placeholder${index}`} />
           ))}
         </ScrollView>
-        <CheckInButton />
+        <Button
+    icon={<Feather name="check-square" size={28} color={Colors.white} />}
+    title="Join The11 Family"
+    style={styles.checkIn}
+    onPress={() =>
+      openBrowser({
+        title: 'Check In',
+        url: 'http://echo.church/checkin',
+      })
+    }
+  />
       </View>
     );
   }
@@ -108,7 +120,15 @@ const HomeScreen = () => {
           <Card key={`card${index}`} {...item} />
         ))}
       </ScrollView>
-      <CheckInButton />
+      <Button
+    icon={<Feather name="check-square" size={28} color={Colors.white} />}
+    title="Join The  Family"
+    style={styles.checkIn}
+    onPress={() => {
+     
+      navigation.navigate('Membership Form'); // navigate to BaptismForm screen
+    }}
+  />
     </View>
   );
 };

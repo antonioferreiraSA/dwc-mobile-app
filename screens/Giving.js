@@ -47,36 +47,17 @@ const GivingScreen = () => {
         </Text>
 
         <Button
-          title="North San Jose"
+          title="Tithes and Offering"
           onPress={() => handleGive('north')}
           style={styles.button}
         />
         <Button
-          title="South San Jose"
+          title="Building Fund"
           onPress={() => handleGive('south')}
           style={styles.button}
         />
-        <Button
-          title="Sunnyvale"
-          onPress={() => handleGive('sunnyvale')}
-          style={styles.button}
-        />
-        <Button
-          title="Fremont"
-          onPress={() => handleGive('fremont')}
-          style={styles.button}
-        />
-        <Button
-          title="Online"
-          onPress={() => handleGive('online')}
-          style={styles.button}
-        />
-        <Button
-          title={build}
-          onPress={() => Clipboard.setString(build)}
-          style={styles.sha_button}
-          textStyle={{ color: 'rgba(255, 255, 255, 0.20)', fontSize: 14 }}
-        />
+       
+       
       </ScrollView>
     </View>
   );

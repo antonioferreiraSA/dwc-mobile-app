@@ -2,15 +2,15 @@ import React from 'react';
 import { ScrollView, StyleSheet, View, Image } from 'react-native';
 import { HeaderHeightContext } from '@react-navigation/stack';
 import * as WebBrowser from 'expo-web-browser';
-import logEvent from '../utils/logEvent';
-import Colors from '../constants/Colors';
+import logEvent from '../../utils/logEvent';
+import Colors from '../../constants/Colors';
 import {
   Text,
   Title,
   Subtitle,
   Heading,
-} from '../components/shared/Typography';
-import Button from '../components/shared/Button';
+} from '../../components/shared/Typography';
+import Button from '../../components/shared/Button';
 
 const VolunteerScreen = () => {
   return (
@@ -19,10 +19,7 @@ const VolunteerScreen = () => {
         <ScrollView
           style={[styles.mainContainer, { paddingTop: headerHeight }]}
         >
-          <Image
-            source={require('../assets/images/volunteer.jpg')}
-            style={styles.image}
-          />
+      
           <View style={[styles.container, { paddingBottom: headerHeight }]}>
             <Title style={styles.heading}>Volunteering</Title>
 

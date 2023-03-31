@@ -21,7 +21,7 @@ import { Feather } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons'; 
 // eslint-disable-next-line no-duplicate-imports
 import { FontAwesome5 } from '@expo/vector-icons';
-
+import { useNavigation } from '@react-navigation/native';
 const openMaps = (location) => {
   let url = '';
 
@@ -43,6 +43,7 @@ const openMaps = (location) => {
 
 
 const LocationsScreen = () => {
+  const navigation = useNavigation();
  
 
   return (
@@ -66,12 +67,8 @@ const LocationsScreen = () => {
               title="Watch Church Online"
               style={styles.button}
               onPress={() => {
-                WebBrowser.openBrowserAsync('https://echo.online.church/', {
-                  toolbarColor: Colors.darkestGray,
-                }).catch((err) => {
-                  logEvent('ERROR with WebBrowser', { error: err });
-                  WebBrowser.dismissBrowser();
-                });
+                logEvent('TAP Baptism Interested');
+                navigation.navigate('YouTube Page'); // navigate to BaptismForm screen
               }}
             />
 
@@ -104,6 +101,12 @@ const LocationsScreen = () => {
   icon={<Entypo name="old-phone" size={24} color="white" />}
   title=" +27 11 616 1795"
   style={styles.checkIn}
+  onPress={() =>
+    openBrowser({
+      title: 'WhatsApp',
+      url: 'https://api.whatsapp.com/send/?phone=%2B27764758245&text&type=phone_number&app_absent=0',
+    })
+  }
  
 />
 <View style={{paddingVertical: 5}}/>

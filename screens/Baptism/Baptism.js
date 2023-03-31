@@ -6,8 +6,10 @@ import logEvent from '../../utils/logEvent';
 import Colors from '../../constants/Colors';
 import { Text, Title, Heading } from '../../components/shared/Typography';
 import Button from '../../components/shared/Button';
+import { useNavigation } from '@react-navigation/native';
 
 const BaptismScreen = () => {
+  const navigation = useNavigation();
   return (
     <HeaderHeightContext.Consumer>
       {(headerHeight) => (
@@ -47,12 +49,7 @@ const BaptismScreen = () => {
               style={styles.button}
               onPress={() => {
                 logEvent('TAP Baptism Interested');
-                WebBrowser.openBrowserAsync('https://echo.church/baptism/', {
-                  toolbarColor: Colors.darkestGray,
-                }).catch((err) => {
-                  logEvent('ERROR with WebBrowser', { error: err });
-                  WebBrowser.dismissBrowser();
-                });
+                navigation.navigate('Baptism Form'); // navigate to BaptismForm screen
               }}
             />
           </View>

@@ -9,11 +9,9 @@ import Colors from '../constants/Colors';
  */
 export const listItems = [
   { value: 'ABOUT US', page: 'Baptism' },
-  { value: 'LOCATION & CONTACT', page: 'Locations' }, // change file name to contactinfo.js
-  { value: 'EVENTS', page: 'Volunteer' },
+  { value: 'LOCATION & CONTACT', page: 'Locations' }, 
   { value: 'BAPTISM', page: 'Baptism' },
   { value: 'VOLUNTEER', page: 'Volunteer' },
-  { value: 'BIBLE', page: 'Prayer Request Form' },  // buttom tab nav
   { value: 'PRAYER REQUESTS', page: 'Prayer Requests' },
 ];
 
@@ -22,8 +20,8 @@ export const listItems = [
  */
 export const callToActionButtons = [
   {
-    title: '🤍  Echo Compassion',
-    url: 'https://www.echocompassion.com/',
+    title: '🤍 Privacy Policy ',
+    url: 'https://mobile.destinyworshipcentre.co.za/wp-content/uploads/2023/03/Privacy-Policy-Destiny-Worship-Centre-Church-1.pdf',
     backgroundColor: Colors.red,
   },
   {

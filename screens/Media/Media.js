@@ -10,7 +10,10 @@ const PrayerRequestsScreen = () => {
       {(headerHeight) => (
     <SafeAreaView style={{flex:1}}>
       
-    <WebView source={{uri: 'https://mobile.destinyworshipcentre.co.za/baptism-form/'}}  />
+    <WebView source={{uri: 'https://www.bible.com/bible/111/GEN.1.NIV'}}
+    scalesPageToFit={true}
+    
+    />
     </SafeAreaView>
     )}
     </HeaderHeightContext.Consumer>

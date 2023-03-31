@@ -11,27 +11,31 @@ import { Text } from '../components/shared/Typography';
 import EchoLogo from '../components/EchoLogo';
 import ConnectLogo from '../components/ConnectLogo';
 import GroupsLogo from '../components/GroupsLogo';
+import { FontAwesome5 } from '@expo/vector-icons'; 
 import ErrorFallback, { handleError } from '../components/shared/ErrorFallback';
 
 /**
  * Home Tab
  */
-import HomeScreen from '../screens/Home';
+import HomeScreen from '../screens/Home/Home';
+import MembershipForm from '../screens/Home/MembershipForm'
 
 /**
  * Media Tab
  */
-import MediaScreen from '../screens/Media';
+import MediaScreen from '../screens/Media/Media';
 import PlaylistScreen from '../screens/Playlist';
 
 /**
  * Connect Tab
  */
 import ConnectScreen from '../screens/Connect';
+import Youtube from '../screens/Youtube/Youtube'
+import BaptismForm from '../screens/Baptism/BaptismForm';
 import LocationsScreen from '../screens/Locations';
 import ActivateScreen from '../screens/Activate';
 import BaptismScreen from '../screens/Baptism/Baptism';
-import VolunteerScreen from '../screens/Volunteer';
+import VolunteerScreen from '../screens/Volunteer/Volunteer';
 import PrayerRequestsScreen from '../screens/PrayerRequest/PrayerRequests';
 import PrayerRequestsFormScreen from '../screens/PrayerRequest/PrayerRequestForm';
 
@@ -94,6 +98,7 @@ function HomeStackScreen() {
           component={HomeScreen}
           options={{ headerShown: false }}
         />
+        
       </HomeStack.Navigator>
     </ErrorBoundary>
   );
@@ -134,6 +139,26 @@ function ConnectStackScreen() {
           component={ConnectScreen}
           options={{ headerShown: false }}
         />
+        <ConnectStack.Screen
+        name="Baptism Form"
+        component={BaptismForm}
+        options={defaultOptions}
+      />
+      <ConnectStack.Screen
+        name="Membership Form"
+        component={MembershipForm}
+        options={defaultOptions}
+      />
+      <ConnectStack.Screen
+        name="Prayer Request"
+        component={PrayerRequestsFormScreen}
+        options={defaultOptions}
+      />
+      <ConnectStack.Screen
+        name="YouTube Page"
+        component={Youtube}
+        options={defaultOptions}
+      />
         <ConnectStack.Screen
           name="Locations"
           component={LocationsScreen}
@@ -222,9 +247,10 @@ export default function App() {
           name="Home"
           component={HomeStackScreen}
           options={{
-            tabBarLabel: 'ECHO',
+            tabBarLabel: 'Home',
             tabBarIcon: ({ size, color }) => (
               <EchoLogo width={size} height={size} color={color} />
+              
             ),
           }}
         />
@@ -232,9 +258,9 @@ export default function App() {
           name="Media"
           component={MediaStackScreen}
           options={{
-            tabBarLabel: 'MEDIA',
+            tabBarLabel: 'Bible',
             tabBarIcon: ({ color, size }) => (
-              <Entypo name={'controller-play'} size={size} color={color} />
+              <FontAwesome5 name="bible" size={20} color="white" />
             ),
           }}
         />
@@ -242,7 +268,7 @@ export default function App() {
           name="Connect"
           component={ConnectStackScreen}
           options={{
-            tabBarLabel: 'CONNECT',
+            tabBarLabel: 'Connect',
             tabBarIcon: ({ color }) => (
               <ConnectLogo width={34} height={34} color={color} />
             ),
