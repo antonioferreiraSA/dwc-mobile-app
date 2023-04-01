@@ -1,6 +1,5 @@
 import 'dotenv/config';
 
-const timestamp = Math.floor(new Date().getTime() / 10000);
 
 export default {
   expo: {
@@ -30,7 +29,7 @@ export default {
     },
     android: {
       adaptiveIcon: {
-        foregroundImage: './assets/images/app-icon.png',
+        foregroundImage: './assets/images/icon.png',
         backgroundColor: '#FFFFFF',
       },
       package: 'com.DestinyWorshipCentre.church.app',
@@ -48,6 +47,11 @@ export default {
         },
       ],
     ],
+    "extra": {
+      "eas": {
+        "projectId": "b5ac5e8c-3ff9-4226-826b-d7fc8cd88f26"
+      }
+    }
     
   },
 };
