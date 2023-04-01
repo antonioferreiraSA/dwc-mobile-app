@@ -24,7 +24,7 @@ export default {
     assetBundlePatterns: ['**/*'],
     
     ios: {
-      buildNumber: String(timestamp),
+      buildNumber: "1.0.0",
       bundleIdentifier: 'com.DestinyWorshipCentre.church.app',
       supportsTablet: false,
     },
@@ -33,8 +33,8 @@ export default {
         foregroundImage: './assets/images/app-icon.png',
         backgroundColor: '#FFFFFF',
       },
-      package: 'com.echo.church.app',
-      versionCode: timestamp,
+      package: 'com.DestinyWorshipCentre.church.app',
+      versionCode: 1,
     },
     plugins: [
       'expo-updates',
@@ -48,11 +48,6 @@ export default {
         },
       ],
     ],
-    extra: {
-      "eas": {
-        "projectId": "b5ac5e8c-3ff9-4226-826b-d7fc8cd88f26"
-      }
     
-    },
   },
 };
