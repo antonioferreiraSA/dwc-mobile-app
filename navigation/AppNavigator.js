@@ -24,7 +24,7 @@ import MembershipForm from '../screens/Home/MembershipForm'
  * Media Tab
  */
 import MediaScreen from '../screens/Media/Media';
-import PlaylistScreen from '../screens/Playlist';
+
 
 /**
  * Connect Tab
@@ -39,13 +39,12 @@ import VolunteerScreen from '../screens/Volunteer/Volunteer';
 import PrayerRequestsScreen from '../screens/PrayerRequest/PrayerRequests';
 import PrayerRequestsFormScreen from '../screens/PrayerRequest/PrayerRequestForm';
 
-import MissionsScreen from '../screens/Missions';
 
 /**
  * Groups Tab
  */
 import GroupsScreen from '../screens/Groups';
-import GroupDetailsScreen from '../screens/GroupDetails';
+
 
 /**
  * Giving Tab
@@ -96,7 +95,12 @@ function HomeStackScreen() {
         <HomeStack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ headerShown: false }}
+          options={{ 
+            headerShown: false
+            
+          
+          }}
+          
         />
         
       </HomeStack.Navigator>
@@ -115,14 +119,7 @@ function MediaStackScreen() {
           component={MediaScreen}
           options={{ headerShown: false }}
         />
-        <MediaStack.Screen
-          name="Playlist"
-          component={PlaylistScreen}
-          options={({ route }) => ({
-            ...defaultOptions,
-            title: route.params.playlistTitle,
-          })}
-        />
+        
       </MediaStack.Navigator>
     </ErrorBoundary>
   );
@@ -189,11 +186,7 @@ function ConnectStackScreen() {
         component={PrayerRequestsFormScreen}
         options={defaultOptions}
       />
-        <ConnectStack.Screen
-          name="Missions"
-          component={MissionsScreen}
-          options={defaultOptions}
-        />
+        
       </ConnectStack.Navigator>
     </ErrorBoundary>
   );
@@ -210,11 +203,7 @@ function GroupsStackScreen() {
           component={GroupsScreen}
           options={{ headerShown: false }}
         />
-        <GroupsStack.Screen
-          name="GroupDetails"
-          component={GroupDetailsScreen}
-          options={{ ...defaultOptions, headerTitle: null }}
-        />
+     
       </GroupsStack.Navigator>
     </ErrorBoundary>
   );
@@ -248,6 +237,7 @@ export default function App() {
           component={HomeStackScreen}
           options={{
             tabBarLabel: 'Home',
+      
             tabBarIcon: ({ size, color }) => (
               <EchoLogo width={size} height={size} color={color} />
               

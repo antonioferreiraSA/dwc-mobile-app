@@ -15,7 +15,7 @@ const ActivateScreen = () => {
           style={[styles.mainContainer, { paddingTop: headerHeight }]}
         >
           <Image
-            source={require('../assets/images/activate.png')}
+            source={require('../assets/images/bap.jpeg')}
             style={styles.image}
           />
           <View style={[styles.container, { paddingBottom: headerHeight }]}>
