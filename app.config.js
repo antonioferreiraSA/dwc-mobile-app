@@ -28,6 +28,7 @@ export default {
       supportsTablet: false,
     },
     android: {
+      "googleServicesFile": "./google-services.json",
       adaptiveIcon: {
         foregroundImage: './assets/images/icon.png',
         backgroundColor: '#FFFFFF',

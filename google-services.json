@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "911885924877",
+    "project_id": "dwc-app-e23c9",
+    "storage_bucket": "dwc-app-e23c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:911885924877:android:700cdd5be342a6d71e3344",
+        "android_client_info": {
+          "package_name": "com.DestinyWorshipCentre.church.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "911885924877-7mlbk52enbj2e94o2in08j80lh8ek6si.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.DestinyWorshipCentre.church.app",
+            "certificate_hash": "afb23c355f7f8ed63229798645aed31ab1ac79d5"
+          }
+        },
+        {
+          "client_id": "911885924877-j7gfh3os7ll8hd1k93h2apta3plcnekq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.DestinyWorshipCentre.church.app",
+            "certificate_hash": "fd3462b36adb9b410a78b2a5d6d97e68bf98ecb6"
+          }
+        },
+        {
+          "client_id": "911885924877-dmgk0rkoq64skbvrnvsld7n2jnqs777u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3ZsUaKBUkPF1ubH2GQ-UPFq5kGudEdJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "911885924877-dmgk0rkoq64skbvrnvsld7n2jnqs777u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

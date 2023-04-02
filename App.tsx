@@ -6,6 +6,7 @@ import { requestTrackingPermissionsAsync } from 'expo-tracking-transparency';
 import * as Sentry from 'sentry-expo';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import messaging from '@react-native-firebase/messaging';
 import Storybook from './storybook';
 import {
   AppState,
@@ -14,6 +15,7 @@ import {
   StyleSheet,
   UIManager,
   View,
+  Alert
 } from 'react-native';
 import Constants from 'expo-constants';
 import { StatusBar } from 'expo-status-bar';
@@ -68,6 +70,58 @@ const queryClient = new QueryClient();
 
 function App() {
   const [appIsReady, setAppIsReady] = useState(false);
+
+  const requestUserPermission = async () => {
+    const authStatus = await messaging().requestPermission();
+    const enabled =
+      authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+      authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+  
+    if (enabled) {
+      console.log('Authorization status:', authStatus);
+    }
+
+    useEffect(() => {
+    if(requestTrackingPermissionsAsync()){
+      Message().getToken().then(token => {
+        console.log(token)
+      })
+    } else {
+      console.log("Failed token status")
+    }
+     // Check whether an initial notification is available
+     messaging()
+     .getInitialNotification()
+     .then( async (remoteMessage) => {
+       if (remoteMessage) {
+         console.log(
+           'Notification caused app to open from quit state:',
+           remoteMessage.notification,
+         );
+         
+       }
+  
+     });
+
+     messaging().onNotificationOpenedApp(remoteMessage => {
+      console.log(
+        'Notification caused app to open from background state:',
+        remoteMessage.notification,
+      );
+
+    });
+
+    // Register background handler
+messaging().setBackgroundMessageHandler(async (remoteMessage) => {
+  console.log('Message handled in the background!', remoteMessage);
+});
+const unsubscribe = messaging().onMessage(async remoteMessage => {
+  Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+});
+
+return unsubscribe;
+
+} ,[]);
 
   useEffect(() => {
     async function prepare() {
